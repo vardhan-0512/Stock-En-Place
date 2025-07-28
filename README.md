@@ -48,7 +48,7 @@ pip install -r requirements.txt
 
 3. **Run the app**
 ```bash
-python Backend/app.py
+python Backend/api/app.py
 ```
 Then open your browser at http://localhost:5000/
 
