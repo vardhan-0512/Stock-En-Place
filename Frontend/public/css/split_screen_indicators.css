@@ -1,0 +1,16 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #E5E7EB;
+    overflow-x: hidden;
+}
+#chat-window::-webkit-scrollbar {
+    width: 6px;
+}
+#chat-window::-webkit-scrollbar-track {
+    background: #111827;
+}
+#chat-window::-webkit-scrollbar-thumb {
+    background-color: #374151;
+    border-radius: 10px;
+}

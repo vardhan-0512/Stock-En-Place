@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="split_screen_indicators.css" rel="stylesheet" />
+    <title>Stock Analysis</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-black">
+
+    <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col">
+        
+        <header class="flex items-center justify-between mb-8" data-aos="fade-down">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tighter" id="stock-name-header">
+                    
+                </h1>
+                <p class="text-lg text-gray-400" id="stock-fullname-header">
+                    
+                </p>
+            </div>
+            <a id="back-button" href="indic.html" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Back</span>
+            </a>
+        </header>
+
+        <main class="flex-grow grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+            <div class="lg:col-span-3" data-aos="fade-right" data-aos-delay="200">
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 h-full flex flex-col">
+                    <h2 class="text-2xl font-bold mb-4">Indicator Chart</h2>
+                    <div class="flex-grow bg-gray-900 rounded-lg flex items-center justify-center min-h-[60vh] lg:min-h-0">
+                        <p class="text-gray-500 text-center px-4">Your interactive chart will be displayed here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2" data-aos="fade-left" data-aos-delay="400">
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 h-full flex flex-col">
+                    <h2 class="text-2xl font-bold mb-4">AI Analysis & Chat</h2>
+                    <div class="flex-grow flex flex-col bg-gray-900 rounded-lg min-h-[60vh] lg:min-h-0 overflow-hidden">
+                        <div id="chat-window" class="flex-grow p-4 text-gray-300 leading-relaxed overflow-y-auto space-y-4">
+                            <div class="flex justify-start">
+                                <div class="bg-gray-800 p-3 rounded-lg max-w-sm">
+                                    <p class="font-semibold text-blue-400 mb-2">Current Scenario:</p>
+                                    <p class="mb-4 text-sm">Based on the Relative Strength Index (RSI), the stock is currently in neutral territory. The Moving Average Convergence Divergence (MACD) shows a bullish crossover, suggesting potential upward momentum.</p>
+                                    <p class="font-semibold text-blue-400 mb-2">Situational Analysis:</p>
+                                    <p class="text-sm">The stock has recently found strong support near its 50-day moving average. Upcoming earnings reports and overall market sentiment will be key drivers. Feel free to ask any follow-up questions!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-gray-700">
+                            <form id="chat-form" class="flex space-x-2">
+                                <input id="chat-input" type="text" placeholder="Ask a follow-up question..." class="w-full bg-gray-800 text-white placeholder-gray-500 border border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                                <button type="submit" class="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                      <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        const stockData = {
+            "AAPL": { name: "Apple Inc." },
+            "TSLA": { name: "Tesla, Inc." },
+            "GOOGL": { name: "Alphabet Inc." },
+            "DEFAULT": { name: "Stock Ticker" }
+        };
+        
+        const indicatorAnalysis = {
+            'bollinger-bands': 'Bollinger Bands are widening, suggesting increased volatility. The price is currently touching the upper band, which could indicate an overbought condition.',
+            'relative-strength-index': 'The Relative Strength Index (RSI) is at 62, indicating bullish momentum but approaching overbought territory. Caution is advised.',
+            'macd': 'The MACD line has recently crossed above the signal line, a common bullish indicator suggesting upward momentum may continue.',
+            'default': 'This is a general analysis. Please select a specific indicator for a more detailed summary.'
+        };
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const ticker = urlParams.get('ticker') || 'STOCK';
+            const indicatorSlug = urlParams.get('indicator') || 'default';
+            const indicatorName = urlParams.get('name') || 'Analysis';
+
+            const stockInfo = stockData[ticker.toUpperCase()] || stockData['DEFAULT'];
+            const analysisText = indicatorAnalysis[indicatorSlug] || indicatorAnalysis['default'];
+
+            document.getElementById('page-title').textContent = `${ticker}: ${indicatorName}`;
+            document.getElementById('stock-fullname-header').textContent = stockInfo.name;
+            document.getElementById('chart-title').textContent = `${indicatorName} Chart`;
+            document.getElementById('ai-title').textContent = `AI Analysis: ${indicatorName}`;
+
+            document.getElementById('back-button').href = `indicator-selection-page.html?ticker=${ticker}`;
+            
+            addMessage(analysisText, 'ai');
+        };
+
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatWindow = document.getElementById('chat-window');
+
+        chatForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const userMessage = chatInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, 'user');
+                chatInput.value = '';
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+                setTimeout(() => {
+                    const aiResponse = `This is a simulated AI response regarding "${userMessage}". A real LLM would provide a detailed answer here.`;
+                    addMessage(aiResponse, 'ai');
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                }, 1000);
+            }
+        });
+
+        function addMessage(message, sender) {
+            const messageWrapper = document.createElement('div');
+            const messageBubble = document.createElement('div');
+            messageWrapper.classList.add('flex', 'w-full');
+            messageBubble.classList.add('p-3', 'rounded-lg', 'max-w-md', 'text-sm');
+
+            if (sender === 'user') {
+                messageWrapper.classList.add('justify-end');
+                messageBubble.classList.add('bg-blue-600', 'text-white');
+            } else {
+                messageWrapper.classList.add('justify-start');
+                messageBubble.classList.add('bg-gray-800');
+            }
+            messageBubble.textContent = message;
+            messageWrapper.appendChild(messageBubble);
+            chatWindow.appendChild(messageWrapper);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Indicator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #E5E7EB;
+        }
+    </style>
+</head>
+<body class="bg-black">
+
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-black tracking-tighter" id="header-title">Select an Indicator for AAPL</h1>
+            <p class="text-lg text-gray-400 mt-2">Click any block to view the detailed analysis.</p>
+        </header>
+
+        <div id="indicator-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        </div>
+    </div>
+
+    <script>
+        const indicators = [
+            { id: 'block-1', name: 'Bollinger Bands', slug: 'bollinger-bands' },
+            { id: 'block-2', name: 'RSI', slug: 'relative-strength-index' },
+            { id: 'block-3', name: 'MACD', slug: 'macd' },
+            { id: 'block-4', name: 'Moving Average', slug: 'moving-average' },
+            { id: 'block-5', name: 'Stochastic Oscillator', slug: 'stochastic-oscillator' },
+            { id: 'block-6', name: 'Fibonacci Retracement', slug: 'fibonacci-retracement' },
+            { id: 'block-7', name: 'Ichimoku Cloud', slug: 'ichimoku-cloud' },
+            { id: 'block-8', name: 'On-Balance Volume', slug: 'obv' },
+            { id: 'block-9', name: 'ATR', slug: 'average-true-range' },
+            { id: 'block-10', name: 'VWAP', slug: 'volume-weighted-avg-price' },
+            { id: 'block-11', name: 'Parabolic SAR', slug: 'parabolic-sar' },
+            { id: 'block-12', name: 'CCI', slug: 'commodity-channel-index' },
+            { id: 'block-13', name: 'Momentum Indicator', slug: 'momentum' },
+            { id: 'block-14', name: 'Williams %R', slug: 'williams-percent-range' },
+            { id: 'block-15', name: 'Chaikin Money Flow', slug: 'chaikin-money-flow' },
+            { id: 'block-16', name: 'Aroon Indicator', slug: 'aroon' },
+            { id: 'block-17', name: 'Supertrend', slug: 'supertrend' },
+            { id: 'block-18', name: 'Donchian Channels', slug: 'donchian-channels' },
+            { id: 'block-19', name: 'Keltner Channels', slug: 'keltner-channels' },
+            { id: 'block-20', name: 'Rate of Change', slug: 'roc' },
+            { id: 'block-21', name: 'Standard Deviation', slug: 'standard-deviation' },
+            { id: 'block-22', name: 'TRIX', slug: 'trix' },
+            { id: 'block-23', name: 'Vortex Indicator', slug: 'vortex' },
+            { id: 'block-24', name: 'Awesome Oscillator', slug: 'awesome-oscillator' },
+            { id: 'block-25', name: 'Elder-Ray Index', slug: 'elder-ray' },
+            { id: 'block-26', name: 'Force Index', slug: 'force-index' },
+            { id: 'block-27', name: 'Gann Angles', slug: 'gann-angles' },
+            { id: 'block-28', name: 'Pivot Points', slug: 'pivot-points' },
+            { id: 'block-29', name: 'Zig Zag', slug: 'zig-zag' },
+            { id: 'block-30', name: 'Coppock Curve', slug: 'coppock-curve' }
+        ];
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const ticker = urlParams.get('ticker') || 'AAPL';
+            
+            document.getElementById('header-title').textContent = `Select an Indicator for ${ticker}`;
+
+            const grid = document.getElementById('indicator-grid');
+
+            indicators.forEach(indicator => {
+                const block = document.createElement('a');
+                block.href = `split_screen_indicators.html?ticker=${ticker}&indicator=${indicator.slug}&name=${encodeURIComponent(indicator.name)}`;
+                block.className = 'indicator-block bg-gray-900/50 border border-gray-800 rounded-xl p-6 text-center hover:border-blue-500 hover:scale-105 hover:bg-gray-800/60 transition-all duration-300 flex items-center justify-center';
+                block.dataset.indicator = indicator.slug;
+                const text = document.createElement('span');
+                text.className = 'text-lg font-semibold';
+                text.textContent = indicator.name;
+                
+                block.appendChild(text);
+                grid.appendChild(block);
+            });
+        };
+    </script>
+</body>
+</html>

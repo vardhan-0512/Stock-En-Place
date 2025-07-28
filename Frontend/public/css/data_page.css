@@ -1,0 +1,12 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #E5E7EB;
+}
+html {
+    scroll-behavior: smooth;
+}
+.nav-link.active {
+    background-color: #3B82F6;
+    color: white;
+}

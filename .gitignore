@@ -1,0 +1,74 @@
+# Operating System files
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+.localized
+
+# Python bytecode
+*.pyc
+__pycache__/
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# Jupyter Notebook specific files
+.ipynb_checkpoints/ # Jupyter's auto-saved checkpoints
+*.ipynb_checkbackups # Older Jupyter backups
+nbrights_cache/
+.virtual_documents/
+
+# Data files (raw data is often large and should not be versioned directly)
+# Instead, provide instructions on how to download it.
+
+# Ignore CSV files
+*.csv
+
+# Ignore Excel files
+*.xls
+*.xlsx
+
+
+# Processed/Generated data (these can be very large and recreated from raw data)
+data/processed/
+*.pkl # Python pickle files (e.g., for processed dataframes or saved models)
+*.hdf5
+*.npy
+*.parquet
+*.feather
+
+# Trained Models (can be large)
+results/trained_models/
+*.pkl
+*.h5 # Keras/TensorFlow models
+*.pth # PyTorch models
+*.pt # PyTorch models
+*.joblib # Scikit-learn models saved with joblib
+
+# Results and Figures (if you re-generate them, you might not want to track them)
+# However, for a research paper, you might want to version your final plots in results/figures.
+# If you want to version them, remove these lines or specify individual files.
+# results/
+# results/figures/
+# *.png
+# *.jpg
+# *.jpeg
+
+# IDE and Editor specific files
+.vscode/ # VS Code settings and launch configurations (unless shared)
+.idea/ # IntelliJ / PyCharm files
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp

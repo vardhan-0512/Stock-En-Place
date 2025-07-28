@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Details</title>
+    <link href="Data_page.css" rel="stylesheet" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+
+</head>
+<body class="bg-black">
+
+    <header class="py-16 text-center" data-aos="fade-down">
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter" id="stock-name">
+            
+        </h1>
+        <p class="text-xl text-gray-400 mt-2" id="stock-fullname">
+            
+        </p>
+    </header>
+
+    <main class="container mx-auto px-4 pb-24">
+        
+        <section id="description" class="max-w-4xl mx-auto mb-20" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-2">About</h2>
+            <p class="text-gray-300 leading-relaxed" id="stock-description">
+                
+            </p>
+        </section>
+
+        <section id="data-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 text-center">
+            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-lg font-semibold text-blue-400 mb-2">Current Price (OHLC)</h3>
+                <p class="text-4xl font-bold text-white">$145.86</p>
+                <div class="text-sm text-gray-400 mt-2">
+                    O: 145.12 H: 146.90 L: 144.50 C: 145.86
+                </div>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-lg font-semibold text-green-400 mb-2">All-Time High</h3>
+                <p class="text-4xl font-bold text-white">$198.23</p>
+                <p class="text-sm text-gray-400 mt-2">on 2023-12-14</p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-lg font-semibold text-red-400 mb-2">All-Time Low</h3>
+                <p class="text-4xl font-bold text-white">$0.10</p>
+                 <p class="text-sm text-gray-400 mt-2">on 1980-12-12</p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="text-lg font-semibold text-purple-400 mb-2">Market Cap</h3>
+                <p class="text-4xl font-bold text-white">$2.25T</p>
+                <p class="text-sm text-gray-400 mt-2">Outstanding Shares: 15.5B</p>
+            </div>
+        </section>
+
+        <nav class="sticky top-5 z-10 flex justify-center mb-16" data-aos="fade-up">
+            <div class="flex space-x-2 bg-gray-900/80 backdrop-blur-sm p-2 rounded-full border border-gray-700">
+                <a href="#analysis" class="nav-link px-6 py-2 rounded-full transition-all duration-300">Analysis</a>
+                <a href="#forecast" class="nav-link px-6 py-2 rounded-full transition-all duration-300">Forecast</a>
+                <a href="#llm-queries" class="nav-link px-6 py-2 rounded-full transition-all duration-300">LLM Queries</a>
+            </div>
+        </nav>
+
+        <section id="analysis" class="max-w-4xl mx-auto mb-20 min-h-[50vh] pt-10" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 text-center">Technical Indicators</h2>
+            <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 text-center">
+                <p class="text-gray-400">Indicator charts and data will be displayed here.</p>
+            </div>
+        </section>
+
+        <section id="forecast" class="max-w-4xl mx-auto mb-20 min-h-[50vh] pt-10" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 text-center">Future Analysis & Forecast</h2>
+            <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 text-center">
+                 <p class="text-gray-400">Forecasting models and predictions will appear here.</p>
+            </div>
+        </section>
+
+        <section id="llm-queries" class="max-w-4xl mx-auto min-h-[50vh] pt-10" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 text-center">Ask Our AI</h2>
+            <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800">
+                <div class="chat-window h-64 bg-gray-900 rounded-lg p-4 mb-4 overflow-y-auto">
+                    <p class="text-gray-400">AI: Hello! How can I help you with your analysis of <span id="llm-ticker-name"></span>?</p>
+                </div>
+                <div class="flex">
+                    <input type="text" placeholder="Type your question..." class="w-full bg-gray-800 text-white placeholder-gray-500 border border-gray-700 rounded-l-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-r-lg hover:bg-blue-700 transition-colors duration-300">Send</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        const stockData = {
+            "AAPL": {
+                name: "Apple Inc.",
+                description: "Apple Inc. is an American multinational technology company that specializes in consumer electronics, computer software, and online services. Apple is the world's largest technology company by revenue and, since January 2021, the world's most valuable company."
+            },
+            "TSLA": {
+                name: "Tesla, Inc.",
+                description: "Tesla, Inc. is an American electric vehicle and clean energy company based in Austin, Texas. Tesla designs and manufactures electric cars, battery energy storage from home to grid-scale, solar panels and solar roof tiles, and related products and services."
+            },
+            "GOOGL": {
+                name: "Alphabet Inc.",
+                description: "Alphabet Inc. is an American multinational conglomerate holding company headquartered in Mountain View, California. It was created through a corporate restructuring of Google on October 2, 2015, and became the parent company of Google and several former Google subsidiaries."
+            },
+             "DEFAULT": {
+                name: "Stock Ticker",
+                description: "This is a placeholder description for the selected stock. Real data would be fetched from a financial API to populate this section with relevant information about the company's business, history, and market position."
+            }
+        };
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        window.onload = function() {
+            const ticker = getUrlParameter('ticker') || 'STOCK';
+            const data = stockData[ticker] || stockData['DEFAULT'];
+
+            document.getElementById('stock-name').textContent = ticker;
+            document.getElementById('stock-fullname').textContent = data.name;
+            document.getElementById('stock-description').textContent = data.description;
+            document.getElementById('llm-ticker-name').textContent = ticker;
+        };
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

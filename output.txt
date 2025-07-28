@@ -1,0 +1,17 @@
+
+--- Question 1 ---
+Q: What is the ticker for Apple and Qualcomm?
+A: The ticker symbols for Apple and Qualcomm are as follows:
+
+- **Apple Inc.**: AAPL
+- **Qualcomm Incorporated**: QCOM
+
+--- Question 2 ---
+Q: Can you generate stock descriptions for Apple in 5 lines?
+A: Certainly!
+
+1. **Apple Inc. is a global technology leader known for its innovative and user-friendly products, including the iPhone, iPad, and Mac computers.**
+2. **With a robust ecosystem and services like the App Store, Apple Music, and iCloud, Apple has cultivated a dedicated customer base and a strong brand loyalty.**
+3. **The company is committed to sustainability, investing in renewable energy and environmentally friendly practices across its operations and supply chain.**
+4. **Apple's emphasis on design and technology has driven it to become one of the world's most valuable and influential companies.**
+5. **Continued innovation and strategic acquisitions have kept Apple at the forefront of the tech industry, pushing the boundaries of what technology can achieve.**
