@@ -39,13 +39,16 @@ You can explore the app locally while the live site is being upgraded:
 ```bash
 git clone https://github.com/your-username/stock-en-place.git
 cd stock-en-place
+```
 
 2. **Install dependencies**
 ```bash
 pip install -r requirements.txt
+```
 
 3. **Run the app**
 ```bash
 python Backend/app.py
+```
 Then open your browser at http://localhost:5000/
 
