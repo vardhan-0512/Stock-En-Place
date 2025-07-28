@@ -37,7 +37,7 @@ You can explore the app locally while the live site is being upgraded:
 
 1. **Clone the repo**
 ```bash
-git clone https://github.com/your-username/stock-en-place.git
+git clone https://github.com/vardhan-0512/stock-en-place.git
 cd stock-en-place
 ```
 
