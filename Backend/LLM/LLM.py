@@ -17,7 +17,7 @@ if __name__ == "__main__":
     # Initialize OpenRouter client
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key="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"  # Set this env variable OR hardcode your key
+        api_key="Enter your api key here"  # Set this env variable OR hardcode your key
     )
 
     # Call the API for each question
