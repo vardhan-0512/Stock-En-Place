@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faded Yellow Tin Sign</title>
+  <style>
+    body {
+      background: #b4ad94; /* faded yellow background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+.  position: relative;
+  background: #f7dc6f;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: sweep 3s infinite;
+}
+
+@keyframes sweep {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+  </style>
+</head>
+<body>
+  <div class="retro-bg tin-sign">Forecast</div>
+</body>
+<canvas id="particles"></canvas>
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = Array.from({length: 50}, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 2 + 1,
+  dx: (Math.random() - 0.5) * 0.5,
+  dy: (Math.random() - 0.5) * 0.5
+}));
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = "rgba(255, 255, 200, 0.3)";
+    ctx.fill();
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+
+        .time-btn.active {
+            background-color: #333333;
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mx-auto px-4 py-8 flex flex-col min-h-screen">
+
+    <!-- Header with Back Button -->
+    <header class="flex items-center justify-between mb-8" data-aos="fade-down">
+        <div>
+            <h1 class="text-4xl md:text-5xl font-black tracking-tighter" id="stock-name-header">
+                <!-- Stock Ticker inserted via JS -->
+            </h1>
+            <p class="text-lg text-gray-400" id="stock-fullname-header">
+                <!-- Full Company Name inserted via JS -->
+            </p>
+        </div>
+        <a id="back-button" href="Data_page.html"
+            class="bg-[#1e1e1e] border border-gray-700 hover:border-white text-gray-200 font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+            <span class="text-xl font-bold">&lt;</span>
+            <span>Back</span>
+        </a>
+
+    </header>
+
+    <!-- Chart Container -->
+    <div data-aos="fade-right" data-aos-delay="200" class="bg-[#1e1e1e] p-6 rounded-xl border border-gray-700 w-full min-h-[70vh] flex items-center justify-center">
+        <p class="text-gray-500 text-center px-4">Your interactive chart will be displayed here.</p>
+    </div>
+    
+    <!-- Time Range Buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mt-4">
+        <button class="time-btn px-4 py-2 rounded-lg border border-gray-700 hover:border-white transition" data-range="1d">1D</button>
+        <button class="time-btn px-4 py-2 rounded-lg border border-gray-700 hover:border-white transition" data-range="1w">1W</button>
+        <button class="time-btn px-4 py-2 rounded-lg border border-gray-700 hover:border-white transition" data-range="1m">1M</button>
+        <button class="time-btn px-4 py-2 rounded-lg border border-gray-700 hover:border-white transition" data-range="1y">1Y</button>
+        <button class="time-btn px-4 py-2 rounded-lg border border-gray-700 hover:border-white transition" data-range="3y">3Y</button>
+        <button class="time-btn px-4 py-2 rounded-lg border border-gray-700 hover:border-white transition" data-range="5y">5Y</button>
+        <button class="time-btn px-4 py-2 rounded-lg border border-gray-700 hover:border-white transition" data-range="lifetime">Lifetime</button>
+    </div>
+
+    <!-- Custom Date Picker -->
+    <div class="flex items-center justify-center gap-3 flex-wrap mt-3">
+        <label class="text-gray-400">From:</label>
+        <input type="date" id="start-date" class="bg-[#1e1e1e] text-gray-200 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-white">
+        <label class="text-gray-400">To:</label>
+        <input type="date" id="end-date" class="bg-[#1e1e1e] text-gray-200 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-white">
+        <button id="apply-date" class="px-4 py-2 bg-[#1e1e1e] border border-gray-700 hover:border-white rounded-lg transition">Apply</button>
+    </div>
+
+</div>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, offset: 50 });
+
+    // Time Range Button Logic
+    const buttons = document.querySelectorAll('.time-btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const range = btn.dataset.range;
+            console.log('Selected range:', range);
+            // TODO: update chart based on selected range
+        });
+    });
+
+    // Custom Date Apply
+    document.getElementById('apply-date').addEventListener('click', () => {
+        const start = document.getElementById('start-date').value;
+        const end = document.getElementById('end-date').value;
+        console.log('Custom date range:', start, 'to', end);
+        // TODO: update chart based on custom date
+    });
+</script>
+<script src="split_screen_indicators.js"></script>
+</body>
+</html>

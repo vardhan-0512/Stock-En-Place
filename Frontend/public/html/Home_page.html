@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockIndicator - Home</title>
+    <link rel="stylesheet" href="Home_page.css">
+</head>
+<body>
+
+    <main class="home-container">
+        <h1 class="title">Stock En Place</h1>
+        <p class="subtitle">One stop solution for all your stock analysis needs</p>
+        <!-- Form to submit search to backend -->
+        <form id="searchForm" method="POST" action="/search">
+            <input type="text" name="query" id="searchInput" placeholder="e.g., Apple, Microsoft, Tesla...">
+            <button type="submit" id="searchButton">Search</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>For any queries or suggestions mail @chennavardhan05@gmail.com</p>
+    </footer>
+
+    <script src="Home_page.js"></script>
+</body>
+</html>

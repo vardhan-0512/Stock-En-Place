@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Analysis & Chat</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbar for chat window */
+        #chat-window::-webkit-scrollbar {
+            width: 6px;
+        }
+        #chat-window::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        #chat-window::-webkit-scrollbar-thumb {
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            border-radius: 10px;
+        }
+        #chat-window::-webkit-scrollbar-thumb:hover {
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col">
+
+        <!-- Header with Back Button -->
+        <header class="flex items-center justify-between mb-8" data-aos="fade-down">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tighter" id="stock-name-header">
+                AI Analysis & Chat
+            </h1>
+            <a id="back-button" href="Data_page.html"
+               class="bg-[#1e1e1e] border border-gray-700 hover:border-white text-gray-200 font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+                <span class="text-xl font-bold">&lt;</span>
+                <span>Back</span>
+            </a>
+        </header>
+
+        <!-- Full Width AI Chat Section -->
+        <main data-aos="fade-left" data-aos-delay="200">
+            <div class="bg-[#1e1e1e] p-6 rounded-xl border border-gray-700 w-full flex flex-col min-h-[70vh]">
+
+                <h2 class="text-2xl font-bold mb-4">AI Analysis & Chat</h2>
+
+                <!-- Chat UI Container -->
+                <div class="flex flex-col h-[60vh] lg:h-[70vh] bg-[#1e1e1e] rounded-lg overflow-hidden">
+
+                    <!-- Chat Messages Window (scrollable) -->
+                    <div id="chat-window" class="flex-1 p-4 leading-relaxed overflow-y-auto space-y-4">
+                        <!-- Initial AI message -->
+                        <div class="flex justify-start">
+                            <div class="bg-[#1e1e1e] border border-gray-700 p-3 rounded-lg max-w-sm text-gray-200 hover:border-white transition">
+                                <p class="font-bold text-white mb-2">Current Scenario:</p>
+                                <p class="mb-4 text-sm">Based on the Relative Strength Index (RSI), the stock is currently in neutral territory. The MACD shows a bullish crossover, suggesting potential upward momentum.</p>
+                                <p class="font-bold text-white mb-2">Situational Analysis:</p>
+                                <p class="text-sm">The stock has recently found strong support near its 50-day moving average. Upcoming earnings reports and overall market sentiment will be key drivers. Feel free to ask any follow-up questions!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Input Form -->
+                    <div class="p-4 border-t border-gray-700 flex-shrink-0">
+                        <form id="chat-form" class="flex space-x-2">
+                            <input id="chat-input" type="text" placeholder="Ask a follow-up question..."
+                                   class="w-full bg-[#1e1e1e] text-gray-200 placeholder-gray-500 border border-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-white transition">
+                            <button type="submit"
+                                    class="bg-[#1e1e1e] border border-gray-700 hover:border-white text-gray-200 px-4 py-3 rounded-lg flex items-center justify-center transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+    </script>
+</body>
+</html>

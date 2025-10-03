@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis - Apple Inc.</title>
+    <link rel="stylesheet" href="Data_page.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <main class="analysis-container">
+    <!-- Header with Back Button inline -->
+    <header class="stock-header flex items-center justify-between mb-6">
+        <h1>Apple Inc. (AAPL)</h1>
+        <a href="Home_page.html" class="bg-[#1e1e1e] border border-gray-700 hover:border-white text-gray-200 font-bold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+            <span class="text-xl font-bold">&lt;</span>
+            <span>Back</span>
+        </a>
+    </header>
+
+    <div class="card-grid">
+        <div class="data-card" id="description-card">
+            <h2>Description</h2>
+            <p>Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. It also sells various related services...</p>
+        </div>
+        <div class="data-card" id="ohlc-card">
+            <h2>Today's Data (OHLC)</h2>
+            <ul class="ohlc-list">
+                <li><strong>Open:</strong> <span>$170.10</span></li>
+                <li><strong>High:</strong> <span>$172.50</span></li>
+                <li><strong>Low:</strong> <span>$169.80</span></li>
+                <li><strong>Close:</strong> <span>$172.00</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <nav class="tab-nav">
+        <button class="tab-button active" data-tab="indicators">Indicators</button>
+        <button class="tab-button" data-tab="calculators">Calculators</button>
+        <button class="tab-button" data-tab="Data">All-Time Data</button>
+        <button class="tab-button" data-tab="llm">LLM</button>
+        <button class="tab-button" data-tab="forecasts">Forecasts</button>
+    </nav>
+
+    <section class="tab-content-wrapper">
+        <div id="indicators" class="tab-content active">
+            <h3>Technical Indicators</h3>
+            <p>Indicator charts and data will be here...</p>
+            <a href="indicators.html" class="details-button">Explore Indicators</a>
+        </div>
+        <div id="calculators" class="tab-content">
+            <h3>Financial Calculators</h3>
+            <p>Tools for calculating valuations, returns, etc., will be here...</p>
+            <a href="calculators.html" class="details-button">Open Calculators</a>
+        </div>
+        <div id="llm" class="tab-content">
+            <h3>AI-Powered Insights</h3>
+            <p>LLM-generated summaries, sentiment analysis, and forecasts will be here...</p>
+            <a href="llm.html" class="details-button">Get Insights</a>
+        </div>
+        <div id="Data" class="tab-content">
+            <h3>All-Time Data</h3>
+            <p>Entire OHLC data for all time will be here...</p>
+            <a href="ATD.html" class="details-button">View All Data</a>
+        </div>
+        <div id="forecasts" class="tab-content">
+            <h3>Price Forecasts</h3>
+            <p>Analyst ratings and price target forecasts will be displayed here...</p>
+            <a href="Forecasts.html" class="details-button">See Forecasts</a>
+        </div>
+    </section>
+</main>
+
+    
+    <script src="Data_page.js"></script>
+</body>
+</html>
