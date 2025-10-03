@@ -1,0 +1,94 @@
+/* Import a clean font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --background-color: #121212; /* Very dark gray */
+    --text-color: #e0e0e0;       /* Light gray for text */
+    --primary-accent: #ffffff;   /* White for titles and highlights */
+    --card-background: #1e1e1e;  /* Lighter dark gray for elements */
+    --border-color: #333333;     /* Medium-dark gray for borders */
+    --subtle-text: #888888;       /* Lighter gray for subtitles */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.home-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-accent); /* Title is now white */
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--subtle-text);
+    margin-bottom: 2rem;
+}
+
+.search-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+}
+
+#searchInput {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 15px 25px;
+    font-size: 1rem;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: var(--primary-accent); /* Focus border is now white */
+}
+
+#searchButton {
+    border: none;
+    background-color: var(--primary-accent); /* Button is now white */
+    color: #121212; /* Text on button is dark to contrast */
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #cccccc; /* Button darkens slightly on hover */
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    color: var(--subtle-text);
+    font-size: 0.9rem;
+}

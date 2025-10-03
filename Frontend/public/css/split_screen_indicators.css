@@ -1,16 +1,25 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #000000;
-    color: #E5E7EB;
-    overflow-x: hidden;
+    background-color: #121212;   /* overall page bg */
+    color: #e5e5e5;             /* light gray text for readability */
+    overflow-x: hidden;         /* prevent horizontal scroll */
 }
+
+/* Custom scrollbar for the chat window */
 #chat-window::-webkit-scrollbar {
     width: 6px;
 }
+
 #chat-window::-webkit-scrollbar-track {
-    background: #111827;
+    background: #121212;        /* match page background */
 }
+
 #chat-window::-webkit-scrollbar-thumb {
-    background-color: #374151;
+    background-color: #1e1e1e;  /* dark block color */
+    border: 1px solid #444;     /* subtle border like blocks */
     border-radius: 10px;
+}
+
+#chat-window::-webkit-scrollbar-thumb:hover {
+    border-color: #fff;         /* highlight border on hover (same theme) */
 }
